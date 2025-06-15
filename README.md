@@ -2,7 +2,7 @@
 
 This is a personal portfolio website for **Sharmeen Khan**, a results-driven Data Analyst. The site highlights her technical skills, professional experience, education, and projects.
 
-🌐 [Live Preview (optional link)](https://sharmeenk.github.io)
+🌐 [Live Preview (optional link)](https://sharmeen-1812.github.io)
 
 ---
 

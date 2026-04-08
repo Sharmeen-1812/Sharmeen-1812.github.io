@@ -3,110 +3,373 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sharmeen Khan | Data Analyst Portfolio</title>
+  <title>Sharmeen Khan | AI Solutions Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
+    :root {
+      --cobalt: #2563eb;
+      --slate: #0f172a;
+      --glass: rgba(255, 255, 255, 0.8);
+      --transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { box-sizing: border-box; scroll-behavior: smooth; }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Plus Jakarta Sans', sans-serif;
       margin: 0;
-      background: #f9f9f9;
-      color: #333;
-      line-height: 1.6;
+      background: #f1f5f9;
+      color: #334155;
     }
-    header {
-      background: #4a90e2;
-      color: white;
-      padding: 2rem 1rem;
-      text-align: center;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: #4a90e2;
-      border-bottom: 2px solid #ddd;
-      padding-bottom: 0.3rem;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    footer {
-      background: #eee;
-      text-align: center;
+
+    /* --- Navigation --- */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
       padding: 1rem;
-      font-size: 0.9rem;
+      border-bottom: 1px solid #e2e8f0;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
     }
-    .contact a {
-      color: #f9f9f9;
+
+    nav a {
       text-decoration: none;
+      color: var(--slate);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    nav a:hover { color: var(--cobalt); }
+
+    /* --- Hero Section --- */
+    header {
+      background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.95)), 
+                  url('assets/Background.png') center/cover;
+      height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    /* INTENSIFIED PHOTO GLOW & ZOOM */
+    .profile-container {
+      position: relative;
+      width: 220px; 
+      height: 220px;
+      margin-bottom: 2rem;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .profile-highlight {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #fff 0%, var(--cobalt) 100%);
+      padding: 5px; 
+      transition: var(--transition);
+      cursor: pointer;
+      overflow: hidden;
+      box-shadow: 
+        0 0 20px rgba(37, 99, 235, 0.6),
+        0 0 40px rgba(37, 99, 235, 0.4),
+        0 0 60px rgba(37, 99, 235, 0.2);
+      animation: superGlow 2.5s infinite alternate;
+    }
+
+    .profile-highlight img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: white;
+      transition: var(--transition);
+    }
+
+    .profile-container:hover .profile-highlight {
+      transform: scale(1.15) rotate(2deg);
+      box-shadow: 
+        0 0 30px var(--cobalt),
+        0 0 60px rgba(37, 99, 235, 0.8),
+        0 0 90px rgba(37, 99, 235, 0.4);
+    }
+
+    header h1 { 
+      font-size: 3.8rem; 
+      margin: 0; 
+      letter-spacing: -1px;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    
+    .hero-tag { 
+      font-size: 1.25rem; 
+      opacity: 0.95; 
+      margin: 1.2rem 0; 
+      max-width: 750px;
+      line-height: 1.6;
+      background: rgba(255,255,255,0.08);
+      padding: 12px 25px;
+      border-radius: 15px;
+      backdrop-filter: blur(8px);
+    }
+
+    /* --- Sections --- */
+    section {
+      max-width: 1100px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      color: var(--slate);
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* --- Current Role Glass Card --- */
+    .current-role {
+      background: white;
+      border-radius: 24px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 3rem;
+      box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
+      margin-top: -80px;
+      transition: var(--transition);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    .current-role:hover { transform: translateY(-10px); }
+
+    .role-img-container {
+      width: 100%;
+      height: 350px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    .role-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .role-img-container:hover .role-img { transform: scale(1.08); }
+
+    /* --- Project Grid --- */
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid #e2e8f0;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(37, 99, 235, 0.15);
+      border-color: var(--cobalt);
+    }
+
+    .project-img-box {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #f8fafc;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: var(--transition);
+    }
+
+    .project-card:hover img { transform: scale(1.1); filter: brightness(1.05); }
+
+    .project-info { padding: 1.5rem; }
+
+    /* --- Skills --- */
+    .skills-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill-tag {
+      background: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--slate);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+      transition: var(--transition);
+    }
+
+    .skill-tag:hover {
+      background: var(--cobalt);
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* --- Animations --- */
+    @keyframes superGlow {
+      0% {
+        box-shadow: 0 0 15px rgba(37, 99, 235, 0.5), 0 0 30px rgba(37, 99, 235, 0.3);
+        transform: scale(1);
+      }
+      100% {
+        box-shadow: 0 0 35px rgba(37, 99, 235, 0.9), 0 0 70px rgba(37, 99, 235, 0.6);
+        transform: scale(1.03);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .current-role { grid-template-columns: 1fr; padding: 2rem; margin-top: -50px; }
+      header h1 { font-size: 2.8rem; }
+      .profile-container { width: 180px; height: 180px; }
     }
   </style>
 </head>
 <body>
 
+  <nav>
+    <a href="#about">About</a>
+    <a href="#experience">Experience</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+  </nav>
+
   <header>
+    <div class="profile-container">
+      <div class="profile-highlight">
+        <img src="assets/Profile.png" alt="Sharmeen Khan">
+      </div>
+    </div>
     <h1>Sharmeen Khan</h1>
-    <p>Data Analyst | Python | SQL | Tableau | AWS Cloud</p>
-    <p class="contact">
-      📧 <a href="mailto:ksharmeen73@gmail.com">ksharmeen73@gmail.com</a> |
-      <a href="https://www.linkedin.com/in/sharmeen-khan-35669b112/" target="_blank">LinkedIn</a>
-    </p>
+    <p class="hero-tag">AI Solutions Engineer specializing in surgical navigation, medical image analysis, and anatomical modeling for next-generation healthcare systems.</p>
   </header>
 
-  <section>
-    <h2>Professional Summary</h2>
-    <p>Results-driven Data Analyst with expertise in data preprocessing, statistical analysis, feature engineering, and visualization. Proficient in Python, SQL, Excel, Tableau, and AWS, with a strong track record of translating complex data into strategic insights.</p>
-
-    <h2>Technical Skills</h2>
-    <ul>
-      <li><strong>Languages:</strong> Python (NumPy, Pandas, Scipy, OpenCV, Matplotlib, Seaborn)</li>
-      <li><strong>Databases:</strong> SQL</li>
-      <li><strong>Visualization:</strong> Tableau, MS Excel</li>
-      <li><strong>Cloud:</strong> AWS (Certified Cloud Practitioner)</li>
-      <li><strong>Other:</strong> Time-Series Analysis, Image Processing, Statistics</li>
-    </ul>
-
-    <h2>Experience</h2>
-    <h3>CloudThat Technologies Pvt Ltd (Jan 2022 – July 2022)</h3>
-    <ul>
-      <li>Developed data orchestration systems using AWS: S3, Lambda, API Gateway, Cognito, etc.</li>
-      <li>Training on AWS Solutions Architect and Developer Associate</li>
-    </ul>
-
-    <h3>ISRO – Research Analyst Intern (Jan 2020 – Nov 2020)</h3>
-    <ul>
-      <li>Processed satellite time-series datasets using denoising algorithms</li>
-      <li>Worked with .hdf, .tif formats using Python & GIS</li>
-    </ul>
-
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Delhivery:</strong> Feature Engineering & Traffic Analysis (Python)</li>
-      <li><strong>Aerofit:</strong> Probability & Statistical Analysis (Excel)</li>
-      <li><strong>Digital Mammogram Enhancement:</strong> Image Processing using OpenCV</li>
-    </ul>
-
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Scaler Academy:</strong> Data Science & ML (2023 – Present)</li>
-      <li><strong>M.Tech – CSE:</strong> Jamia Hamdard (8.18 CGPA)</li>
-      <li><strong>B.Tech – CSE:</strong> Jamia Hamdard (8.33 CGPA)</li>
-    </ul>
-
-    <h2>Certifications</h2>
-    <ul>
-      <li>AWS Certified Cloud Practitioner (Valid till July 2026)</li>
-    </ul>
-
-    <h2>Achievements</h2>
-    <ul>
-      <li>Research paper published in IJTRS on noise reduction in satellite data (4 citations)</li>
-    </ul>
+  <section id="about">
+    <div class="current-role">
+      <div>
+        <span style="color: var(--cobalt); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Featured Experience</span>
+        <h3 style="font-size: 1.8rem; margin: 10px 0;">AI Solutions Engineer @ ONE Simulation</h3>
+        <p>Developing a <strong>CT-guided biopsy navigation system</strong> integrating 6DOF EMT tracking and rigid registration (Kabsch/Umeyama).</p>
+        <ul style="padding-left: 1.2rem;">
+          <li>Achieved 8-9 mm RMSE across lumbar spine and lung phantoms.</li>
+          <li>Integrated rib collision detection for simulated procedural constraints.</li>
+          <li>Focus on CT-to-world alignment and real-time instrument tracking.</li>
+        </ul>
+      </div>
+      <div class="role-img-container">
+        <img src="assets/Simulation_Work.png" alt="Surgical Simulation Work" class="role-img">
+      </div>
+    </div>
   </section>
 
-  <footer>
-    &copy; 2025 Sharmeen Khan • Built with 💙 for the web
+  <section id="experience">
+    <h2><i class="fas fa-history"></i> Career Path</h2>
+    <div class="project-grid">
+      <div class="project-card" style="border-left: 5px solid #64748b;">
+        <div class="project-info">
+          <h4 style="margin:0;">Research Associate Intern</h4>
+          <p style="color: var(--cobalt); margin: 5px 0;">CloudThat Technologies | 2022</p>
+          <p style="font-size: 0.9rem;">Engineered backend analytics for Data Orchestration using AWS (Boto3, DynamoDB, Lambda), improving pipeline efficiency by 15%.</p>
+        </div>
+      </div>
+      <div class="project-card" style="border-left: 5px solid #0ea5e9;">
+        <div class="project-info">
+          <h4 style="margin:0;">Research Analyst Intern</h4>
+          <p style="color: var(--cobalt); margin: 5px 0;">ISRO (New Delhi) | 2020</p>
+          <p style="font-size: 0.9rem;">Implemented de-noising algorithms for time-series satellite data. Research published in IJTRS (4 citations).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2><i class="fas fa-laptop-code"></i> AI & Data Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <div class="project-img-box">
+          <img src="assets/Agent_Project.png" alt="Medical Diagnosis Assistant">
+        </div>
+        <div class="project-info">
+          <h4>Agentic Medical Diagnosis Assistant</h4>
+          <p style="font-size: 0.9rem;">LangChain-based LLM agent designed for structured medical reasoning and safe diagnostic outputs.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img-box">
+          <img src="assets/PubMed_Project.png" alt="PubMed CLI Tool">
+        </div>
+        <div class="project-info">
+          <h4>PubMed Research Papers CLI</h4>
+          <p style="font-size: 0.9rem;">Python automation tool for extracting and filtering biomedical research papers from PubMed.</p>
+        </div>
+      </div>
+      <div class="project-card">
+        <div class="project-img-box">
+          <img src="assets/Walmart_Project.png" alt="Statistical Analysis">
+        </div>
+        <div class="project-info">
+          <h4>Walmart Statistical Analysis</h4>
+          <p style="font-size: 0.9rem;">Applied bootstrapping and Central Limit Theorem to generate 95% confidence intervals for business data.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2><i class="fas fa-braille"></i> Technical Toolkit</h2>
+    <div class="skills-wrap">
+      <span class="skill-tag">Python</span>
+      <span class="skill-tag">MATLAB</span>
+      <span class="skill-tag">3D Slicer</span>
+      <span class="skill-tag">SimpleITK / VTK</span>
+      <span class="skill-tag">OpenCV / PyVista</span>
+      <span class="skill-tag">pydicom</span>
+      <span class="skill-tag">Generative AI / LLMs</span>
+      <span class="skill-tag">AWS Cloud</span>
+      <span class="skill-tag">Statistical Modeling</span>
+      <span class="skill-tag">PyQt / GUI Dev</span>
+    </div>
+  </section>
+
+  <footer style="background: var(--slate); color: white; padding: 4rem 2rem; text-align: center;">
+    <p style="font-weight: 600; margin-bottom: 0.5rem; font-size: 1.2rem;">Sharmeen Khan</p>
+    <p style="font-size: 0.85rem; opacity: 0.7;">M.Tech & B.Tech in CSE • Jamia Hamdard</p>
+    <div style="margin-top: 1.5rem;">
+      <a href="mailto:ksharmeen73@gmail.com" style="color: white; margin: 0 15px; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.linkedin.com/in/sharmeen-khan-35669b112/" target="_blank" style="color: white; margin: 0 15px; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+    </div>
   </footer>
 
 </body>

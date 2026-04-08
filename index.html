@@ -141,14 +141,11 @@
       gap: 15px;
     }
 
-    /* --- Current Role Glass Card --- */
+    /* --- Current Role Glass Card (Removed Image Column) --- */
     .current-role {
       background: white;
       border-radius: 24px;
       padding: 3rem;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 3rem;
       box-shadow: 0 25px 50px -12px rgba(0,0,0,0.15);
       margin-top: -80px;
       transition: var(--transition);
@@ -156,23 +153,6 @@
     }
 
     .current-role:hover { transform: translateY(-10px); }
-
-    .role-img-container {
-      width: 100%;
-      height: 350px;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-
-    .role-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-
-    .role-img-container:hover .role-img { transform: scale(1.08); }
 
     /* --- Project Grid --- */
     .project-grid {
@@ -187,6 +167,7 @@
       overflow: hidden;
       transition: var(--transition);
       border: 1px solid #e2e8f0;
+      padding: 1.5rem; /* Re-added padding since image is gone */
     }
 
     .project-card:hover {
@@ -195,23 +176,7 @@
       border-color: var(--cobalt);
     }
 
-    .project-img-box {
-      width: 100%;
-      height: 200px;
-      overflow: hidden;
-      background: #f8fafc;
-    }
-
-    .project-card img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: var(--transition);
-    }
-
-    .project-card:hover img { transform: scale(1.1); filter: brightness(1.05); }
-
-    .project-info { padding: 1.5rem; }
+    .project-info h4 { margin-top: 0; }
 
     /* --- Skills --- */
     .skills-wrap {
@@ -251,7 +216,7 @@
     }
 
     @media (max-width: 768px) {
-      .current-role { grid-template-columns: 1fr; padding: 2rem; margin-top: -50px; }
+      .current-role { padding: 2rem; margin-top: -50px; }
       header h1 { font-size: 2.8rem; }
       .profile-container { width: 180px; height: 180px; }
     }
@@ -278,19 +243,14 @@
 
   <section id="about">
     <div class="current-role">
-      <div>
-        <span style="color: var(--cobalt); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Featured Experience</span>
-        <h3 style="font-size: 1.8rem; margin: 10px 0;">AI Solutions Engineer @ ONE Simulation</h3>
-        <p>Developing a <strong>CT-guided biopsy navigation system</strong> integrating 6DOF EMT tracking and rigid registration (Kabsch/Umeyama).</p>
-        <ul style="padding-left: 1.2rem;">
-          <li>Achieved 8-9 mm RMSE across lumbar spine and lung phantoms.</li>
-          <li>Integrated rib collision detection for simulated procedural constraints.</li>
-          <li>Focus on CT-to-world alignment and real-time instrument tracking.</li>
-        </ul>
-      </div>
-      <div class="role-img-container">
-        <img src="assets/Simulation_Work.png" alt="Surgical Simulation Work" class="role-img">
-      </div>
+      <span style="color: var(--cobalt); font-weight: 700; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 1px;">Featured Experience</span>
+      <h3 style="font-size: 1.8rem; margin: 10px 0;">AI Solutions Engineer @ ONE Simulation</h3>
+      <p>Developing a <strong>CT-guided biopsy navigation system</strong> integrating 6DOF EMT tracking and rigid registration (Kabsch/Umeyama).</p>
+      <ul style="padding-left: 1.2rem;">
+        <li>Achieved 8-9 mm RMSE across lumbar spine and lung phantoms.</li>
+        <li>Integrated rib collision detection for simulated procedural constraints.</li>
+        <li>Focus on CT-to-world alignment and real-time instrument tracking.</li>
+      </ul>
     </div>
   </section>
 
@@ -299,14 +259,14 @@
     <div class="project-grid">
       <div class="project-card" style="border-left: 5px solid #64748b;">
         <div class="project-info">
-          <h4 style="margin:0;">Research Associate Intern</h4>
+          <h4>Research Associate Intern</h4>
           <p style="color: var(--cobalt); margin: 5px 0;">CloudThat Technologies | 2022</p>
           <p style="font-size: 0.9rem;">Engineered backend analytics for Data Orchestration using AWS (Boto3, DynamoDB, Lambda), improving pipeline efficiency by 15%.</p>
         </div>
       </div>
       <div class="project-card" style="border-left: 5px solid #0ea5e9;">
         <div class="project-info">
-          <h4 style="margin:0;">Research Analyst Intern</h4>
+          <h4>Research Analyst Intern</h4>
           <p style="color: var(--cobalt); margin: 5px 0;">ISRO (New Delhi) | 2020</p>
           <p style="font-size: 0.9rem;">Implemented de-noising algorithms for time-series satellite data. Research published in IJTRS (4 citations).</p>
         </div>
@@ -318,27 +278,18 @@
     <h2><i class="fas fa-laptop-code"></i> AI & Data Projects</h2>
     <div class="project-grid">
       <div class="project-card">
-        <div class="project-img-box">
-          <img src="assets/Agent_Project.png" alt="Medical Diagnosis Assistant">
-        </div>
         <div class="project-info">
           <h4>Agentic Medical Diagnosis Assistant</h4>
           <p style="font-size: 0.9rem;">LangChain-based LLM agent designed for structured medical reasoning and safe diagnostic outputs.</p>
         </div>
       </div>
       <div class="project-card">
-        <div class="project-img-box">
-          <img src="assets/PubMed_Project.png" alt="PubMed CLI Tool">
-        </div>
         <div class="project-info">
           <h4>PubMed Research Papers CLI</h4>
           <p style="font-size: 0.9rem;">Python automation tool for extracting and filtering biomedical research papers from PubMed.</p>
         </div>
       </div>
       <div class="project-card">
-        <div class="project-img-box">
-          <img src="assets/Walmart_Project.png" alt="Statistical Analysis">
-        </div>
         <div class="project-info">
           <h4>Walmart Statistical Analysis</h4>
           <p style="font-size: 0.9rem;">Applied bootstrapping and Central Limit Theorem to generate 95% confidence intervals for business data.</p>
@@ -367,7 +318,7 @@
     <p style="font-weight: 600; margin-bottom: 0.5rem; font-size: 1.2rem;">Sharmeen Khan</p>
     <p style="font-size: 0.85rem; opacity: 0.7;">M.Tech & B.Tech in CSE • Jamia Hamdard</p>
     <div style="margin-top: 1.5rem;">
-      <a href="mailto:ksharmeen73@gmail.com" style="color: white; margin: 0 15px; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
+      <a href="mailto:ksharmeen73@gmail.com" style="color: white; margin: 0 10px; font-size: 1.5rem;"><i class="fas fa-envelope"></i></a>
       <a href="https://www.linkedin.com/in/sharmeen-khan-35669b112/" target="_blank" style="color: white; margin: 0 15px; font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
     </div>
   </footer>
